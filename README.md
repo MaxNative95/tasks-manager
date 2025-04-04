@@ -1,54 +1,33 @@
-# React + TypeScript + Vite
+# Task Manager - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Task Manager is a frontend application built with React and Vite. It allows users to authenticate, create, edit, delete, and view their personal tasks by interacting with a secure API using JWT tokens.
 
-Currently, two official plugins are available:
+## Technologies
+- React
+- Vite
+- TypeScript
+- Context API
+- Material UI
+- JWT Authentication
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+git clone <repo-url> cd task-manager-frontend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. Install dependencies:
+npm install
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+3. Create a `.env` file in the root with:
+VITE_API_URL=http://localhost:8000
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4. Run the development server:
+npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+# How It Works
+
+- On login, the JWT token is stored in `localStorage`.
+- The Context API provides global state for tasks.
+- All API requests automatically include the `Authorization: Bearer <token>` header.
+- Users can manage their tasks securely via the protected backend API.
