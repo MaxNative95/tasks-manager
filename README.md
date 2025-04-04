@@ -13,7 +13,8 @@ Task Manager is a frontend application built with React and Vite. It allows user
 ## Getting Started
 
 1. Clone the repository:
-git clone <repo-url> cd task-manager-frontend
+git clone git@github.com:MaxNative95/tasks-manager.git
+ cd task-manager-frontend
 
 2. Install dependencies:
 npm install
